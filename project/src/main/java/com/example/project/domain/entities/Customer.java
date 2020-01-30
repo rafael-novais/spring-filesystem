@@ -1,11 +1,10 @@
-package com.example.project.domain;
+package com.example.project.domain.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,18 +22,18 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 40, columnDefinition = "nvarchar")
     private String firstName;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 40, columnDefinition = "nvarchar")
     private String lastName;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = true, length = 40, columnDefinition = "nvarchar")
     private String city;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = true, length = 40, columnDefinition = "nvarchar")
     private String country;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = true, length = 40, columnDefinition = "nvarchar")
     private String phone;
 }

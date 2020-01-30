@@ -2,7 +2,7 @@ package com.example.project.service;
 
 import java.util.List;
 
-import com.example.project.domain.Customer;
+import com.example.project.domain.entities.Customer;
 import com.example.project.repository.CustomerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,4 +17,8 @@ public class CustomerService {
     public List<Customer> list() {
         return customerRepository.findAll();
     }
+
+	public Customer buscaPorId(Integer id) {
+		return customerRepository.findById(id).get();
+	}
 }

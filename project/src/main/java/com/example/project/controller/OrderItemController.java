@@ -2,8 +2,8 @@ package com.example.project.controller;
 
 import java.util.List;
 
-import com.example.project.domain.entities.Customer;
-import com.example.project.service.CustomerService;
+import com.example.project.domain.entities.OrderItem;
+import com.example.project.service.OrderItemService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,20 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/customer")
-public class CustomerController {
+@RequestMapping("/orderItem")
+public class OrderItemController {
 
 	@Autowired
-	private CustomerService customerService;
+	private OrderItemService service;
 
 	@GetMapping(value = "/list")
-	public ResponseEntity<List<Customer>> list() {
-		return ResponseEntity.ok(customerService.list());
+	public ResponseEntity<List<OrderItem>> list() {
+		return ResponseEntity.ok(service.list());
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Customer> buscaPorId(@RequestParam Integer id) {
-		return ResponseEntity.ok(customerService.buscaPorId(id));
+	public ResponseEntity<OrderItem> buscaPorId(@RequestParam Integer id) {
+		return ResponseEntity.ok(service.buscaPorId(id));
 	}
-
 }

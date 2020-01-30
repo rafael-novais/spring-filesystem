@@ -4,13 +4,13 @@ spring:
       enabled: false
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://192.168.1.8:1433;databaseName=decola
-    username: decola
-    password: 'decola'
+    url: jdbc:sqlserver://localhost;databaseName=ecommerce
+    username: sa
+    password: 123456
   jpa:
     show-sql: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServer2012Dialect
