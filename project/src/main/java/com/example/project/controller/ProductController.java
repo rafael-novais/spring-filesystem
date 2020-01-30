@@ -61,6 +61,17 @@ public class ProductController {
                  .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
 		         .body(resource);
 
-    }
+	}
+
+	@PostMapping("/upload/excel")
+	public ResponseEntity uploadFromExcel(@RequestParam("file") MultipartFile file) {
+		
+		String enderecoDasImagens = fileService.uploadExcel(file);
+		String nomeDoArquivo = StringUtils.cleanPath(file.getOriginalFilename());
+		
+		return ResponseEntity.ok(enderecoDasImagens);
+	}
+	
+
 
 }

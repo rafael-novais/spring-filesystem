@@ -36,5 +36,10 @@ public class ProductService {
         String image = produto.getImages();
 
 		return image;
-	}
+    }
+    
+    public Product salvar(Product produto){
+        return repository.save(produto);
+    }
+
 }
